@@ -25,6 +25,7 @@ const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [editingContact, setEditingContact] = useState(null);
+  const [searchQuery, setSearchQuery] = useState(""); // Search state
 
   // Pagination states
   const [page, setPage] = useState(0);
@@ -90,12 +91,20 @@ const Contacts = () => {
     setPage(0);
   };
 
+  // Filter contacts based on the search query
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   useEffect(() => {
     getAllContacts();
   }, []);
 
-  // Slice the contacts to show only the current page
-  const paginatedContacts = contacts.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+  // Slice the filtered contacts to show only the current page
+  const paginatedContacts = filteredContacts.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage
+  );
 
   return (
     <div className="min-h-screen bg-[#e8f0f2] py-12 px-4 sm:px-6 lg:px-8">
@@ -106,6 +115,17 @@ const Contacts = () => {
         >
           Contacts List
         </Typography>
+
+        {/* Search Input */}
+        <TextField
+          label="Search by Name"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="mb-6"
+        />
 
         <TableContainer
           component={Paper}
@@ -172,7 +192,7 @@ const Contacts = () => {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={contacts.length}
+          count={filteredContacts.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

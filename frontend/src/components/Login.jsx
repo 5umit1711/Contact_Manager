@@ -29,6 +29,7 @@ const Login = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     const {data} = await axiosInstance.post("/api/login", formData);
+    console.log(data)
     if(data.success){
         toast.success(data.message);
         localStorage.setItem("email", data.email);

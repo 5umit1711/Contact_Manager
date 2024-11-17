@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import Contacts from "./components/Contacts";
 import AddContact from "./components/AddContact";
 import AppLayout from "./components/AppLayout";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -39,6 +41,7 @@ const App = () => {
           }
         />
       </Routes>
+      <ToastContainer/>
     </Router>
   );
 };
