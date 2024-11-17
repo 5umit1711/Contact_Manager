@@ -25,9 +25,8 @@ const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [editingContact, setEditingContact] = useState(null);
-  const [searchQuery, setSearchQuery] = useState(""); // Search state
+  const [searchQuery, setSearchQuery] = useState(""); 
 
-  // Pagination states
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -81,7 +80,6 @@ const Contacts = () => {
     }
   };
 
-  // Pagination handlers
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -91,7 +89,6 @@ const Contacts = () => {
     setPage(0);
   };
 
-  // Filter contacts based on the search query
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -100,7 +97,6 @@ const Contacts = () => {
     getAllContacts();
   }, []);
 
-  // Slice the filtered contacts to show only the current page
   const paginatedContacts = filteredContacts.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
@@ -116,7 +112,6 @@ const Contacts = () => {
           Contacts List
         </Typography>
 
-        {/* Search Input */}
         <TextField
           label="Search by Name"
           variant="outlined"
@@ -188,7 +183,6 @@ const Contacts = () => {
           </Table>
         </TableContainer>
 
-        {/* Pagination */}
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
@@ -200,7 +194,6 @@ const Contacts = () => {
           labelDisplayedRows={({ page }) => `Page ${page + 1}`}
         />
 
-        {/* Edit Contact Dialog */}
         <Dialog open={openDialog} onClose={handleCloseDialog}>
           <DialogTitle className="bg-[#1DB954] text-white">
             Edit Contact
