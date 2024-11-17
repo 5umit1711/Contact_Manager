@@ -2,7 +2,7 @@
 
 ## Description
 
-The *Contact Management System* is a web application built using the MERN stack (MongoDB, Express, React, Node.js). This system allows users to add, edit, delete, and view their contacts. It provides an easy-to-use interface to manage personal or professional contacts effectively. The backend API is built with Node.js and Express, while the frontend is built using React.
+The *Contact Management System* is a web application built using the MERN stack (MongoDB, Express, React, Node.js). This system allows users to *add*, *edit*, *delete*, and *view* their contacts. It provides an easy-to-use interface to manage personal or professional contacts effectively. The backend API is built with Node.js and Express, while the frontend is built using React.
 
 ## Features
 
