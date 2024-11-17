@@ -39,4 +39,4 @@ Make sure you have the following installed:
 
 ## Challenges Faced
 1. Connecting backend and database. It was giving some error at first but then i managed to overcome it.
-2. Using material UI for table and pagination.
+2. Using material UI for table and pagination. I have to look again and again to the documentation of the material UI.
